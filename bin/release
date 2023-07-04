@@ -1,12 +1,18 @@
 #!/bin/sh
 
+print "Release phase started"
 BUILD_DIR=${1:-}
+print "Build dir found"
 # If the FLUTTER_CLEANUP is in false, or in true.
 if [ -d $BUILD_DIR/build/web ]; then
+    print "build dir in IF"
     DEPLOY_DIR="/app/build/web/"
 else
+    print "build dir in ELSE"
     DEPLOY_DIR="/app/"
 fi
+
+ls $DEPLOY_DIR
 
 cat <<EOF
 ---
